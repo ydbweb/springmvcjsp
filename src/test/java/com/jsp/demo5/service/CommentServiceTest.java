@@ -89,15 +89,9 @@ public class CommentServiceTest {
     @Test
     @DisplayName("get top commenters")
 	public void getTopCommenters(){
-    	System.out.println("aaaa"+commentService.topcommenters());
     	assertEquals(3,commentService.topcommenters().size());
-        
-        
 	}
-		
-		
-		
 
-	}
+}
 	
 
