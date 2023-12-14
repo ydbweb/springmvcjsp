@@ -18,37 +18,37 @@
 	                  <tbody>	    			
 				        <c:forEach items="${userlist}" var="user" varStatus="count">
 					        <tr class="tdblue <c:if test="${count.index % 2 == 0}">even</c:if><c:if test="${count.index % 2 != 0}">odd</c:if>">
-					        	<td class="name">${user.u.nameuser}</td>
-					        	<td class="datetime"><fmt:formatDate value="${user.u.dateCreated}" pattern="dd-MM-yyyy  HH:mm" /></td>
+					        	<td class="name">${usernameuser}</td>
+					        	<td class="datetime"><fmt:formatDate value="${userdateCreated}" pattern="dd-MM-yyyy  HH:mm" /></td>
 					        	<td class="viewpost">
-					        		<c:if test="${user.u.id!=iduserposts}">
-							        	<button type="button" class="btn btn-info" onclick="userposts(${user.u.id})">
+					        		<c:if test="${userid!=iduserposts}">
+							        	<button type="button" class="btn btn-info" onclick="userposts(${userid})">
 							        		<span>view ${user.cntposts} posts</span> 
 							        	</button>
 							        </c:if>		
-							        <c:if test="${user.u.id==iduserposts}">	
+							        <c:if test="${userid==iduserposts}">	
 							        	<button type="button" class="btn btn-success" onclick="userposts(-1)">
 							        		<span>hide ${user.cntposts}</span>
 							        	</button>
 							        </c:if>		
 					        	</td>
 					        	<td class="viewpost">
-					        		<c:if test="${user.u.id!=idusercomments}">
-							        	<button type="button" class="btn btn-primary" onclick="usercomments(${user.u.id})">
+					        		<c:if test="${userid!=idusercomments}">
+							        	<button type="button" class="btn btn-primary" onclick="usercomments(${userid})">
 							        		<span>view ${user.cntcomments} comments</span> 
 							        	</button>
 							        </c:if>		
-									<c:if test="${user.u.id==idusercomments}">							        	
+									<c:if test="${userid==idusercomments}">							        	
 							        	<button type="button" class="btn btn-success" onclick="usercomments(-1)">
 							        		<span>hide ${user.cntcomments}</span>
 							        	</button>
 							        </c:if>	 	
 					        	</td>						        	
 					        </tr>				       	
-			            	<c:if test="${(not empty listposts && user.u.id==iduserposts) || (not empty listcomments && user.u.id==idusercomments)}">
+			            	<c:if test="${(not empty listposts && userid==iduserposts) || (not empty listcomments && userid==idusercomments)}">
 			                <tr>
 			                	<td colspan="4">	
-									<c:if test="${not empty listposts && user.u.id==iduserposts}">
+									<c:if test="${not empty listposts && userid==iduserposts}">
 					                	<div class="Commenttitle">Posts</div>
 								        <c:forEach items="${listposts}" var="coml">
 								        	<div class="post1">
@@ -58,7 +58,7 @@
 								        	<div class="clear"></div>	    	
 								        </c:forEach>						                	
 					                </c:if>		                		                				    
-									<c:if test="${not empty listcomments && user.u.id==idusercomments}">
+									<c:if test="${not empty listcomments && userid==idusercomments}">
 					                	<div class="Commenttitle">Comments</div> 
 								        <c:forEach items="${listcomments}" var="coml">
 								        	<div class="post1 greycom">

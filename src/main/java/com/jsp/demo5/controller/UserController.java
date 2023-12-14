@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.jsp.demo5.entity.Comment;
 import com.jsp.demo5.entity.Post;
 import com.jsp.demo5.entity.User;
+import com.jsp.demo5.entity.UserResults;
 import com.jsp.demo5.service.UserService;
 
 
@@ -53,7 +54,7 @@ public class UserController {
     		model.addObject("listposts" , userservice.getpostsByUsers(-1));        
     	 
         
-        ArrayList  list = userservice.getAllUsers(vararr.get("offset"),vararr.get("steps"),search); 
+    	List<UserResults>  list = userservice.getAllUsers(vararr.get("offset"),vararr.get("steps"),search); 
     	
     	model.addObject("userlist",list);
     	

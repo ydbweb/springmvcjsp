@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import com.jsp.demo5.entity.Comment;
 import com.jsp.demo5.entity.Post;
 import com.jsp.demo5.entity.User;
+import com.jsp.demo5.entity.UserResults;
 import com.jsp.demo5.repository.CommentRepoImpl;
 import com.jsp.demo5.repository.PostRepoImpl;
 import com.jsp.demo5.repository.UserRepoImpl;
@@ -71,23 +72,10 @@ import com.jsp.demo5.repository.UserRepoImpl;
 
 		
 		
-		public ArrayList  getAllUsers(Integer y, Integer z,String search){
-			List<Object[]> results = user.getAllUsers(y,z,search);
+		public List<UserResults>  getAllUsers(Integer y, Integer z,String search){
+			List<UserResults> results = user.getAllUsers(y,z,search);
 
-				List a = new ArrayList();
-	        	results.stream().forEach((record) -> {
-	
-			        
-			        Map b =  new HashMap();
-			        
-			        b.put("u" , (User)record[0]);
-			        b.put("cntcomments" , (BigInteger)record[1]);
-			        b.put("cntposts" , (BigInteger)record[2]);
-			        
-			        a.add(b);  
-			        
-			});
-				return (ArrayList) a;		
+			return results;		
 		
 		}
 	}

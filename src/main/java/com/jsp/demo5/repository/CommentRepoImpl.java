@@ -10,21 +10,23 @@ import org.springframework.stereotype.Component;
 
 import com.jsp.demo5.entity.Comment;
 import com.jsp.demo5.entity.Post;
+import com.jsp.demo5.entity.Postmonths;
 
 @Component
 public class CommentRepoImpl {
 	
-	  @Autowired
-	  private CommentRepository repository;
+	  	@Autowired
+	  	private CommentRepository repository;
 	  
-		
+	  	public String q1="SELECT count(p.id) as cnt,u.nameuser as mname FROM comment p LEFT JOIN user u ON(u.id=p.user_id) GROUP BY p.user_id ORDER BY cnt DESC LIMIT 3";
+			
 		@PersistenceContext
 		private EntityManager entityManager;		
 		
-		public List<Comment> topcommenters(){			
+		public List<Postmonths> topcommenters(){			
 			
-			List<Comment> results = entityManager
-					.createNativeQuery("SELECT count(p.id) as cnt,u.nameuser as mname FROM comment p LEFT JOIN user u ON(u.id=p.user_id) GROUP BY p.user_id ORDER BY cnt DESC LIMIT 3", "commenttop" )
+			List<Postmonths> results = entityManager
+					.createNativeQuery(q1,Postmonths.class)
 					.getResultList();
 			
 			return results;

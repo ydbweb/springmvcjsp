@@ -20,36 +20,7 @@ public class Postmonths{
     
     private String mname;
 
-    
-    
-    public Postmonths(BigInteger cnt,String mname){
-    	this.cnt=cnt;
-    	this.mname=mname;
-    }
-
-
-
-	public BigInteger getCnt() {
-		return cnt;
-	}
-
-
-
-	public void setCnt(BigInteger cnt) {
-		this.cnt = cnt;
-	}
-
-
-
-	public String getMname() {
-		return mname;
-	}
-
-
-
-	public void setMname(String mname) {
-		this.mname = mname;
-	}
+ 
     
 
 
