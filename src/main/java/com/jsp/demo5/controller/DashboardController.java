@@ -34,7 +34,7 @@ public class DashboardController {
        model.addObject("monthlist",listmonths);
        List<Post>  listposters = postservice.toposters(); 
        model.addObject("listposters",listposters);
-       List<Postmonths>  topcommenters = commentservice.topcommenters(); 
+       List<Comment>  topcommenters = commentservice.topcommenters(); 
        model.addObject("topcommenters",topcommenters);
        model.addObject("pageurl" , "posts");
        

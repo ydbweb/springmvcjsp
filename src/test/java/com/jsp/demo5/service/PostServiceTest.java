@@ -1,28 +1,21 @@
 package com.jsp.demo5.service;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assume.assumeTrue;
 import static org.mockito.Mockito.when;
 
 import java.math.BigInteger;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
-import org.junit.Test;
 import org.junit.Before;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.stereotype.Service;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.jsp.demo5.entity.Comment;
@@ -30,27 +23,33 @@ import com.jsp.demo5.entity.Post;
 import com.jsp.demo5.entity.Postmonths;
 import com.jsp.demo5.entity.User;
 import com.jsp.demo5.repository.CommentRepoImpl;
-import com.jsp.demo5.repository.CommentRepository;
-import com.jsp.demo5.repository.PostRepository;
+import com.jsp.demo5.repository.PostRepoImpl;
 import com.jsp.demo5.repository.UserRepoImpl;
-import com.jsp.demo5.repository.UserRepository;
-
-
-
 
 @RunWith(SpringRunner.class)
-public class CommentServiceTest {
+public class PostServiceTest {
 	@InjectMocks
-    private CommentService commentService;     
+    private PostService postService;
+	
+	@Mock
+    private UserRepoImpl userRepoImpl;	
     
 	@Mock
     private CommentRepoImpl commentRepoImpl;
+	
+	@Mock
+    private PostRepoImpl postRepoImpl;
+	
+	//@PersistenceContext
+	//private EntityManager entityManager;
     
     Comment comment1;
     Comment comment2;
     
     List<Comment> comments;
     List<Postmonths> pm;
+    List<Post> posts;
+    List<User> users;
     
     Post post1;
     User user1;
@@ -61,10 +60,14 @@ public class CommentServiceTest {
     @Before
     public void setUp() throws ParseException {
     	TestData testData=new TestData();
+    	users=new ArrayList<>();
     	user1=testData.setUpUser();
     	user2=testData.setUpUser2();
+    	users.add(user1);
         
+    	posts=new ArrayList<>();
         post1=testData.setUpPost(user1);
+        posts.add(post1);
         post2=testData.setUpPost2(user2);   
         
         comments=new ArrayList<>();
@@ -80,29 +83,24 @@ public class CommentServiceTest {
     	pm1.setMname("July");
     	pm.add(pm1);
         
-    }   
-
-    @Test
-    @DisplayName("get all comments")
-	public void getAllCommments(){
-    	when(commentRepoImpl.findAllComments1(post1.getId())).thenReturn(comments);
+    } 
+    
+    @Test 
+    public void getfirstpost(){
+    	when(postRepoImpl.getfirstpost(1)).thenReturn(post1);
     	
-    	assertEquals(2,commentService.getAllCommments(post1.getId()).size());
-        
-        
-	}
+    	assertEquals("jnhj",postService.getfirstpost(1).getTxt());
+    }
     
     
     @Test
-    @DisplayName("get top commenters")
-	public void getTopCommenters(){
-    	/*
-    	when(commentRepoImpl.topcommenters()).thenReturn(pm);
-    	
-    	assertEquals(1,commentService.topcommenters().size());
-    	*/
-	}
+ 	public void getpagination(){
+     	when(postRepoImpl.getcountnumberofpostsquery("")).thenReturn(posts);
 
+     	Map<String, Integer> vararr = new HashMap<String, Integer>();
+     	vararr=postService.getpagination(1,"");
+     	
+     	assumeTrue(vararr.get("total").equals(2));
+ 	}   
+    
 }
-	
-

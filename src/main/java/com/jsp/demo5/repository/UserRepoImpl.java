@@ -23,8 +23,8 @@ public class UserRepoImpl {
 		@PersistenceContext
 		private EntityManager entityManager;		
 
-		public List<UserResults>  getAllUsers(Integer y, Integer z,String search){
-			List<UserResults> results = entityManager
+		public List<Object[]>  getAllUsers(Integer y, Integer z,String search){
+			List<Object[]> results = entityManager
 					.createNativeQuery("SELECT u.id as id,u.nameuser as nameuser,u.datetime as datetime, "
 							+ "(select count(c.id) from comment c where u.id=c.user_id) as cntcomments,"
 							+ "(select count(p.id) from post p where u.id=p.user_id) as cntposts "

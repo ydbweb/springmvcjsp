@@ -23,10 +23,10 @@ public class CommentRepoImpl {
 		@PersistenceContext
 		private EntityManager entityManager;		
 		
-		public List<Postmonths> topcommenters(){			
+		public List<Comment> topcommenters(){			
 			
-			List<Postmonths> results = entityManager
-					.createNativeQuery(q1,Postmonths.class)
+			List<Comment> results = entityManager
+					.createNativeQuery(q1,"commenttop")
 					.getResultList();
 			
 			return results;

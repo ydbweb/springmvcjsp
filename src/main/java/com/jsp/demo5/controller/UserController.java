@@ -8,17 +8,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jsp.demo5.entity.Comment;
 import com.jsp.demo5.entity.Post;
 import com.jsp.demo5.entity.User;
-import com.jsp.demo5.entity.UserResults;
 import com.jsp.demo5.service.UserService;
 
 
 @Controller
 public class UserController {
+	
+	
 	@Autowired
 	UserService userservice;
 	
@@ -54,7 +56,7 @@ public class UserController {
     		model.addObject("listposts" , userservice.getpostsByUsers(-1));        
     	 
         
-    	List<UserResults>  list = userservice.getAllUsers(vararr.get("offset"),vararr.get("steps"),search); 
+        ArrayList  list = userservice.getAllUsers(vararr.get("offset"),vararr.get("steps"),search); 
     	
     	model.addObject("userlist",list);
     	

@@ -70,7 +70,22 @@
 		            <artifactId>hamcrest-core</artifactId>
 		        </exclusion>
 		    </exclusions>
-		</dependency>				
+		</dependency>	
+		<dependency>
+		    <groupId>org.junit.jupiter</groupId>
+		    <artifactId>junit-jupiter-engine</artifactId>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.junit.jupiter</groupId>
+		    <artifactId>junit-jupiter-api</artifactId>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-test</artifactId>
+		    <scope>test</scope>
+		</dependency>					
 	</dependencies>
 	<build>
 	    <finalName>springboot</finalName>
