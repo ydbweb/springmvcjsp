@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.jsp.demo5.entity.Comment;
 import com.jsp.demo5.entity.Post;
+import com.jsp.demo5.entity.Postmonths;
 import com.jsp.demo5.entity.Postresult;
 import com.jsp.demo5.service.CommentService;
 import com.jsp.demo5.service.PostService;
