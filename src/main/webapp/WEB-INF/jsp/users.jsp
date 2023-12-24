@@ -9,7 +9,7 @@
 	                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 	                  <thead>
 	                    <tr>
-	                      <th>User Name</th>		                      
+	                      <th>User Name </th>		                      
 	                      <th>Date created</th>
 	                      <th>Posts</th>		                      
 	                      <th>Comments</th>
