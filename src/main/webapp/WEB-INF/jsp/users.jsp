@@ -1,8 +1,7 @@
           <!-- Content Row -->
           
           <%@include file="header.jsp" %>
-          <%@include file="pagination.jsp" %>
-          
+          <%@include file="pagination.jsp" %>        
 			
 			  <div class="row">
 			      <div class="title1">Posts,Comments per user</div>
