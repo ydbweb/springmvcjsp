@@ -14,7 +14,6 @@
 	                      <th>Date created</th>
 	                      <th>Posts</th>		                      
 	                      <th>Comments</th>
-	                      <th>Comments</th>
 	                    </tr>
 	                  </thead>	
 	                  <tbody>	    			
