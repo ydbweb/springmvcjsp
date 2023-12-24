@@ -64,7 +64,7 @@ public class PostRepoImpl {
 		public List<Post> getmonths(){
 
 			List<Post> results = entityManager
-					.createNativeQuery("SELECT count(p.id) as cnt,MONTHNAME(ANY_VALUE(p.datetime)) as mname FROM post p GROUP BY  MONTH(p.datetime)", "OrderResultsmonths" )
+					.createNativeQuery("SELECT count(p.id) as cnt,MONTHNAME(ANY_VALUE(p.datetime)) as mname FROM post p GROUP BY  MONTH(p.datetime) ORDER BY  cnt", "OrderResultsmonths" )
 					.getResultList();
 			
 			return results;
