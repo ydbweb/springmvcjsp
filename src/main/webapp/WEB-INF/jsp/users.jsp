@@ -13,6 +13,7 @@
 	                      <th>Date created</th>
 	                      <th>Posts</th>		                      
 	                      <th>Comments</th>
+	                      <th>Date created</th>
 	                    </tr>
 	                  </thead>	
 	                  <tbody>	    			
