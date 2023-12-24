@@ -95,6 +95,8 @@
   		window.location.href="<c:url value = "${pageurl}"/>?i2=${i1}<c:if test="${not empty fn:trim(search)}">&search=${search}</c:if>&idusercomments="+uid;
   }  
   
+  
+  
   </script>        
         
 <%@include file="footer.jsp" %>
